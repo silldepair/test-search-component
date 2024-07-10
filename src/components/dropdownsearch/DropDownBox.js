@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { BsSearch } from "react-icons/bs";
 
 function DropDownBox(props){

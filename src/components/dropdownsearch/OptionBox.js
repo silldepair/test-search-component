@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 
 function OptionBox(props){
   const {isWithSearch, toggleSearch, isMultipleSelect, toggleMultiple} = props
