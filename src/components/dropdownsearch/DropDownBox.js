@@ -46,12 +46,15 @@ function DropDownBox(props){
             <div className="flex w-6 h-6 justify-center items-center bg-white">
               <BsSearch />
             </div>
-            <input type="text" value={textSearch} onChange={handleChangeSearch}
+            <input type="text" value={textSearch} onClick={(event)=>event.stopPropagation()} onChange={handleChangeSearch}
             className="flex grow border px-2"/>
           </div>
         )}
         <div className="flex flex-col max-h-36 overflow-auto box-border p-0 border-2">
           {filteredOptions.map((item, index)=>{
+            if(selectedOptions.includes(item)){
+              return null
+            }
             return(
               <button key={index} onClick={()=>handleItemClick(item)}
                 className="flex-1 px-2 py-1 border-b-2 border-inherit text-left">
