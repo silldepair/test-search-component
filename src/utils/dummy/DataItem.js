@@ -25,6 +25,18 @@ export const DataItem = [
     value: 'long 6'
   },
   {
+    label: 'long long long option 7',
+    value: 'long long long option 7'
+  },
+  {
+    label: 'long long long long option 8',
+    value: 'long long long long option 8'
+  },
+  {
+    label: 'long long long long long option 9',
+    value: 'long 9'
+  },
+  {
     label: 'test option here',
     value: 'test'
   },
