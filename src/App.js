@@ -1,23 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import DropDownSearch from './components/dropdownsearch/DropDownSearch'
+import {DataItem} from './utils/dummy/DataItem'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="flex-1 w-2/4 mx-auto">
+        <DropDownSearch dataItem={DataItem}/>
+      </div>
     </div>
   );
 }
