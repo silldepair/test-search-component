@@ -27,14 +27,17 @@ function DropDownBox(props){
     setFilteredOptions(tmpArray);
   }
 
-  function handleItemClick(item){
+  function handleItemClick(item, event){
     console.log(item.value);
     if(!selectedOptions.includes(item)){
-      if(!isMultipleSelect && selectedOptions.length < 1){
-        setSelectedOption([...selectedOptions,item])
+      if(!isMultipleSelect){
+        setSelectedOption([item])
       }else if(isMultipleSelect){
         setSelectedOption([...selectedOptions,item])
       }
+    }
+    if(isMultipleSelect){
+      event.stopPropagation();
     }
   }
 
@@ -55,8 +58,22 @@ function DropDownBox(props){
             if(selectedOptions.includes(item)){
               return null
             }
+            if(textSearch){
+              if(item.label.includes(textSearch)){
+                let firstStrIndex = item.label.indexOf(textSearch);
+                let lastStrIndex = firstStrIndex + textSearch.length;
+                let strFirstSubstring = item.label.substring(0,firstStrIndex);
+                let strLastSubstring = item.label.substring(lastStrIndex);
+                return (
+                  <button key={index} onClick={(event)=>handleItemClick(item, event)}
+                    className="flex-1 px-2 py-1 border-b-2 border-inherit text-left">
+                    {strFirstSubstring}<span className="bg-green-100">{textSearch}</span>{strLastSubstring}
+                  </button>
+                )
+              }
+            }
             return(
-              <button key={index} onClick={()=>handleItemClick(item)}
+              <button key={index} onClick={(event)=>handleItemClick(item, event)}
                 className="flex-1 px-2 py-1 border-b-2 border-inherit text-left">
                 {item.label}
               </button>
