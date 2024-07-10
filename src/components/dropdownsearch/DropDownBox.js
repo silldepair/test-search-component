@@ -39,25 +39,27 @@ function DropDownBox(props){
   }
 
   return (
-    <div className="flex flex-col grow">
-      {isWithSearch && (
-        <div className="flex flex-row">
-          <div className="flex w-6 h-6 justify-center items-center bg-white">
-            <BsSearch />
+    <div className="relative  z-40">
+      <div className="absolute top-0 left-0 w-full bg-white">
+        {isWithSearch && (
+          <div className="flex flex-row">
+            <div className="flex w-6 h-6 justify-center items-center bg-white">
+              <BsSearch />
+            </div>
+            <input type="text" value={textSearch} onChange={handleChangeSearch}
+            className="flex grow border px-2"/>
           </div>
-          <input type="text" value={textSearch} onChange={handleChangeSearch}
-          className="flex grow border px-2"/>
+        )}
+        <div className="flex flex-col max-h-36 overflow-auto box-border p-0 border-2">
+          {filteredOptions.map((item, index)=>{
+            return(
+              <button key={index} onClick={()=>handleItemClick(item)}
+                className="flex-1 px-2 py-1 border-b-2 border-inherit text-left">
+                {item.label}
+              </button>
+            )
+          })}
         </div>
-      )}
-      <div className="flex flex-col max-h-36 overflow-auto box-border p-0 border-2">
-        {filteredOptions.map((item, index)=>{
-          return(
-            <button key={index} onClick={()=>handleItemClick(item)}
-              className="flex-1 px-2 py-1 border-b-2 border-inherit text-left">
-              {item.label}
-            </button>
-          )
-        })}
       </div>
     </div>
   )

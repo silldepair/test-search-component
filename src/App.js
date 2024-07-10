@@ -6,9 +6,7 @@ import {DataItem} from './utils/dummy/DataItem'
 function App() {
   return (
     <div className="App">
-      <div className="flex-1 w-2/4 mx-auto">
-        <DropDownSearch dataItem={DataItem}/>
-      </div>
+      <DropDownSearch dataItem={DataItem}/>
     </div>
   );
 }
