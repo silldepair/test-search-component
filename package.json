@@ -1,4 +1,5 @@
 {
+  "homepage": "https://silldepair.github.io/test-search-component",
   "name": "test-search-component",
   "version": "0.1.0",
   "private": true,
@@ -41,6 +42,5 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.4"
-  },
-  "homepage": "https://silldepair.github.io/test-search-component"
+  }
 }
